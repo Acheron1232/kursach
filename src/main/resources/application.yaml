@@ -3,6 +3,6 @@ spring:
     change-log: classpath:/db/changelog/db.changelog-master.yaml
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:54322/acheron
-    password: zxc
-    username: acheron
+    url: jdbc:postgresql://snuffleupagus.db.elephantsql.com:5432/xvfyhjtz
+    password: UQ4k1COctvMVhUXwBiHOROkJn3zuYFWa
+    username: xvfyhjtz

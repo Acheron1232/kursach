@@ -8,9 +8,9 @@
 <th:block th:each="order : ${orders}">
     <p th:text="${order}">asd</p>
     <a th:href="'order/'+${order.getOrderId()}" th:text="ref"></a>
-    <a th:if="${permit}" th:href="'delete/'+${order.getOrderId()}" th:text="delete"></a>
-    <a th:if="${principalll.getName().equals(order.getSeller().getEmail())}" th:href="'edit/'+${order.getOrderId()}" th:text="edit"></a>
-    <a th:if="${principalll.getName().equals(order.getSeller().getEmail())}" th:href="'delete/'+${order.getOrderId()}" th:text="delete"></a>
+<!--    <a th:if="${permit}" th:href="'delete/'+${order.getOrderId()}" th:text="delete"></a>-->
+    <a th:if="${(principalll.getName().equals(order.getSeller().getEmail()))||permit}" th:href="'edit/'+${order.getOrderId()}" th:text="edit"></a>
+    <a th:if="${(principalll.getName().equals(order.getSeller().getEmail()))||permit}" th:href="'delete/'+${order.getOrderId()}" th:text="delete"></a>
 </th:block>
 <form>
     <label for="checkbox1">Sort by id<input type="checkbox" id="checkbox1" name="checkbox1"></label>
