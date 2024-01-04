@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+</head>
+<body>
+
+<form th:action="'/edit/'+${order.getOrderId()}" method="post">
+    Orders
+    <label for="deliveryAddress">deliveryAddress<input type="text" name="deliveryAddress" id="deliveryAddress" th:value="${order.getDeliveryAddress()}"></label>
+    <label for="paymentMethod">paymentMethod<input type="text" name="paymentMethod" id="paymentMethod" th:value="${order.getPaymentMethod()}"></label>
+    Computer
+    <th:block th:each=" computer :${order.getOrderDetails()}">
+        <label for="type">type<input type="text" name="type" id="type" th:value="${computer.getComputer().getType()}"></label>
+        <label for="configuration">configuration<input type="text" name="configuration" id="configuration" th:value="${computer.getComputer()}"></label>
+        <label for="price">price<input type="number" name="price" id="price" th:value="${computer.getComputer().getPrice()}"></label>
+
+        <div>
+    Computer Component
+            <a th:href="'/addComputerComponent/'+${computer.getComputer().getComputerId()}">add</a>
+        <th:block th:each=" component :${computer.getComputer().getComputerComponent()}">
+    <label for="componentName1">componentName<input type="text" name="componentName" id="componentName1" th:value="${component.getComponentName()}"></label>
+
+        </th:block>
+        </div>
+        <div>
+            Computer Configuration
+            <a th:href="'/addComputerConfigurationConf/'+${computer.getComputer().getComputerId()}">add</a>
+        <th:block th:each=" component1 :${computer.getComputer().getComputerConfigurationComponents()}">
+
+            <label for="componentName">componentName<input type="text" name="componentName" id="componentName" th:value="${component1.getComponentName()}"></label>
+
+        </th:block>
+        </div>
+        </th:block>
+    <input type="submit">
+</form>
+
+</body>
+</html>
